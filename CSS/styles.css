@@ -1,0 +1,24 @@
+.tabela {
+    display: grid;
+    grid-template-columns: repeat(4,2fr); /* 3 colunas */
+    gap: 5px;
+    max-width: 600px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+    
+}
+
+.tabela div {
+    padding: 10px;
+    text-align: center;
+}
+
+.header {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+.linha:nth-child(even) {
+    background-color: #f8f9fa;
+}
