@@ -14,73 +14,76 @@
 
 </head>
 <body>
-
+    <button class="toggle-button" onclick="toggleColunaEnunciado()">Mostrar/Ocultar Coluna Enunciado</button>
+    
     <div class="tabela">
-        <div class="header">CATEGORIA</div>
-        <div class="header">RISCO</div>
-        <div class="header">PROC. E TECNOLOGIAS</div>
-        <div class="header">OBSERVAÇÕES</div>
-        <div class="header">DESCRIÇÃO</div>
+        <div class="grupo">
+            <div class="legenda">Grupo 1: Segurança no Trabalho</div>
+            <div class="linha-container" id="linhaContainer1">
+                <div class="linha header enunciado">Enunciado</div>
+                <div class="linha header">Categoria</div>
+                <div class="linha header">Risco</div>
+                <div class="linha header">Procedimento e Tecnologia</div>
+                <div class="linha header">Descrição</div>
+                <div class="linha header">Observação</div>
+                <div class="linha enunciado"><textarea class="input-text" placeholder="Digite o enunciado"></textarea></div>
+                <div class="linha">Elétrica</div>
+                <div class="linha risco">
+                    <select class="select-box" onchange="atualizarCor(this, 'risco')">
+                        <option value="">Selecione</option>
+                        <option value="extremo">Extremo</option>
+                        <option value="alto">Alto</option>
+                        <option value="medio">Médio</option>
+                    </select>
+                </div>
+                <div class="linha procedimento">
+                    <select class="select-box" onchange="atualizarCor(this, 'procedimento')">
+                        <option value="">Selecione</option>
+                        <option value="apropriado">Apropriado</option>
+                        <option value="incompleto">Incompleto</option>
+                        <option value="inexistente">Inexistente</option>
+                    </select>
+                </div>
+                <div class="linha"><textarea class="input-text" placeholder="Digite a descrição"></textarea></div>
+                <div class="linha"><textarea class="input-text" placeholder="Digite a observação"></textarea></div>
+            </div>
+        </div>
 
-        <div class="linha">Ana</div>
-        <div class="linha">
-            <select class="risk-selection">
-                <option value="low">Baixo</option>
-                <option value="medium">Médio</option>
-                <option value="high">Alto</option>
-            </select>
+        <div class="grupo">
+            <div class="legenda">Grupo 2: Riscos</div>
+            <div class="linha-container" id="linhaContainer2">
+                <div class="linha header enunciado">Enunciado</div>
+                <div class="linha header">Categoria</div>
+                <div class="linha header">Risco</div>
+                <div class="linha header">Procedimento e Tecnologia</div>
+                <div class="linha header">Descrição</div>
+                <div class="linha header">Observação</div>
+                <div class="linha enunciado"><textarea class="input-text" placeholder="Digite o enunciado"></textarea></div>
+                <div class="linha">Elétrica</div>
+                <div class="linha risco">
+                    <select class="select-box" onchange="atualizarCor(this, 'risco')">
+                        <option value="">Selecione</option>
+                        <option value="extremo">Extremo</option>
+                        <option value="alto">Alto</option>
+                        <option value="medio">Médio</option>
+                    </select>
+                </div>
+                <div class="linha procedimento">
+                    <select class="select-box" onchange="atualizarCor(this, 'procedimento')">
+                        <option value="">Selecione</option>
+                        <option value="apropriado">Apropriado</option>
+                        <option value="incompleto">Incompleto</option>
+                        <option value="inexistente">Inexistente</option>
+                    </select>
+                </div>
+                <div class="linha"><textarea class="input-text" placeholder="Digite a descrição"></textarea></div>
+                <div class="linha"><textarea class="input-text" placeholder="Digite a observação"></textarea></div>
+            </div>
         </div>
-        <div class="linha">
-            <select class="proc-selection">
-                <option value="ok">Apropriado</option>
-                <option value="incomplete">Incompleto</option>
-                <option value="none">Inexistente</option>
-            </select>
-        </div>
-        <div class="linha"><input class="input-obs" type="text"></div>
-        <div class="linha"><input class="input-obs" type="text"></div>
-        
-        
     </div>
 
-    <!---
-    <div>
-        <table>
-            <tr>
-                <th>Sunday</th>
-                <th>Monday</th>
-                <th>Tuesday</th>
-                <th>Wednesday</th>
-                <th>Thursday</th>
-                <th>Friday</th>
-                <th>Saturday</th>
-
-            </tr>
-            <tr> 
-                <td>Closed</td>
-                <td>Closed</td>
-                <td><input type="text"></td>
-                <td>Closed</td>
-                <td>Closed</td>
-                <td>Closed</td>
-                <td>Closed</td>
-            </tr> 
-        </table>-->
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <script>
+        
+    </script>
 </body>
 </html>

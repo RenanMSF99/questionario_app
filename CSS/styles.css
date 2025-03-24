@@ -1,51 +1,48 @@
-/* Geral */
-* {
-    padding:0;
-    margin: 0;
-    font-family: Helvetica;
-    color:#333 ;
-    box-sizing: border-box;
-}
-
 .tabela {
-    display: grid;
-    grid-template-columns: repeat(5,10rem); /* 3 colunas */
-    gap: 0.2rem;
-    max-width: 600px;
-    margin: auto;
-    
-}
-
-.tabela div {
     display: flex;
-    align-items: center;  /* Alinha no centro verticalmente */
-    justify-content: center; /* Alinha no centro horizontalmente */
-    text-align: center;
-    min-height: 10px; /* Garante altura mínima para evitar distorções */
-    min-width: 100px;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+}
+
+.grupo {
+    margin-top: 20px;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    overflow: hidden;
     padding: 5px;
-    border: 2px solid #2253695d;
-    border-radius: 3px;
-    
 }
 
-.risk-selection {
-    width: 100%;
-    height: 100%;
+.legenda {
+    background-color: #007bff;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+    font-size: 1.2em;
+}
+
+.linha-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px;
+    background-color: #f8f9fa;
+    transition: 0.3s ease-in-out;
+}
+
+.linha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
     text-align: center;
-    border: none;
-}
-
-.proc-selection {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    border: none;
-}
-
-.input-obs {
-    width: 100%;
-    border: none;
+    min-height: 20px;
+    background-color: white;
 }
 
 .header {
@@ -54,6 +51,48 @@
     font-weight: bold;
 }
 
-.linha:nth-child(even) {
-    background-color: #f8f9fa;
+.select-box {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    background-color: transparent;
+    font-size: 1em;
+    cursor: pointer;
+    outline: none;
+    text-align: center;
 }
+
+.input-text {
+    width: 100%;
+    min-height: 20px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    text-align: left;
+    resize: vertical;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.toggle-button {
+    margin: 10px;
+    padding: 8px 15px;
+    font-size: 1em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Cores dinâmicas */
+.extremo { background-color: red; color: white; }
+.alto { background-color: orange; color: black; }
+.medio { background-color: yellow; color: black; }
+.apropriado { background-color: green; color: white; }
+.incompleto { background-color: orange; color: white; }
+.inexistente { background-color: red; color: white; }
