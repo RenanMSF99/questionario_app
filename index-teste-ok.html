@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela Interativa</title>
+    <style>
+        .tabela {
+            display: flex;
+            flex-direction: column;
+            max-width: 1200px;
+            margin: auto;
+            font-family: Arial, sans-serif;
+        }
+
+        .grupo {
+            margin-top: 20px;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            overflow: hidden;
+            padding: 5px;
+        }
+
+        .legenda {
+            background-color: #007bff;
+            margin-bottom: 5px;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+            text-align: left;
+            font-size: 1.2em;
+        }
+
+        .linha-container {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 5px;
+            background-color: #f8f9fa;
+            transition: 0.3s ease-in-out;
+        }
+
+        .linha {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            text-align: center;
+            min-height: 20px;
+            background-color: white;
+        }
+
+        .header {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+
+        .select-box {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            background-color: transparent;
+            font-size: 1em;
+            cursor: pointer;
+            outline: none;
+            text-align: center;
+        }
+
+        .input-text {
+            width: 100%;
+            min-height: 20px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+            text-align: left;
+            resize: vertical;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .toggle-button {
+            margin: 10px;
+            padding: 8px 15px;
+            font-size: 1em;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .add-button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            font-size: 1em;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Cores dinâmicas */
+        .extremo { background-color: red; color: white; }
+        .alto { background-color: orange; color: black; }
+        .medio { background-color: yellow; color: black; }
+        .apropriado { background-color: green; color: white; }
+        .incompleto { background-color: orange; color: white; }
+        .inexistente { background-color: red; color: white; }
+    </style>
+</head>
+<body>
+    <button class="toggle-button" onclick="toggleColunaEnunciado()">Mostrar/Ocultar Coluna Enunciado</button>
+    <button class="add-button" onclick="adicionarLinha()">Adicionar Linha</button>
+
+    <div class="tabela">
+        <div class="grupo">
+            <div class="legenda">Grupo 1: Segurança no Trabalho</div>
+            <div class="linha-container" id="linhaContainer1">
+                <!-- Linha de exemplo (será clonada) -->
+                <div class="linha header enunciado">Enunciado</div>
+                <div class="linha header">Categoria</div>
+                <div class="linha header">Risco</div>
+                <div class="linha header">Procedimento e Tecnologia</div>
+                <div class="linha header">Descrição</div>
+                <div class="linha header">Observação</div>
+
+                <div class="linha enunciado"><textarea class="input-text" placeholder="Digite o enunciado"></textarea></div>
+                <div class="linha">Elétrica</div>
+                <div class="linha risco">
+                    <select class="select-box" onchange="atualizarCor(this, 'risco')">
+                        <option value="">Selecione</option>
+                        <option value="extremo">Extremo</option>
+                        <option value="alto">Alto</option>
+                        <option value="medio">Médio</option>
+                    </select>
+                </div>
+                <div class="linha procedimento">
+                    <select class="select-box" onchange="atualizarCor(this, 'procedimento')">
+                        <option value="">Selecione</option>
+                        <option value="apropriado">Apropriado</option>
+                        <option value="incompleto">Incompleto</option>
+                        <option value="inexistente">Inexistente</option>
+                    </select>
+                </div>
+                <div class="linha"><textarea class="input-text" placeholder="Digite a descrição"></textarea></div>
+                <div class="linha"><textarea class="input-text" placeholder="Digite a observação"></textarea></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleColunaEnunciado() {
+            document.querySelectorAll('.enunciado').forEach(el => el.classList.toggle('hidden'));
+            document.querySelectorAll('.linha-container').forEach(container => {
+                container.style.gridTemplateColumns = container.querySelector('.enunciado').classList.contains('hidden') ? 'repeat(5, 1fr)' : 'repeat(6, 1fr)';
+            });
+        }
+
+        function atualizarCor(select, tipo) {
+            const valor = select.value;
+            const celula = select.parentElement;
+            celula.className = `linha ${tipo} ${valor}`;
+        }
+
+        function adicionarLinha() {
+            const container = document.getElementById('linhaContainer1');
+            
+            // Clona cada linha individualmente, incluindo os campos de texto e selects
+            const novaLinha = document.createElement('div');
+            novaLinha.classList.add('linha-container');
+            
+            // Clonando o conjunto de 6 campos
+            novaLinha.innerHTML = `
+                <div class="linha enunciado"><textarea class="input-text" placeholder="Digite o enunciado"></textarea></div>
+                <div class="linha">Elétrica</div>
+                <div class="linha risco">
+                    <select class="select-box" onchange="atualizarCor(this, 'risco')">
+                        <option value="">Selecione</option>
+                        <option value="extremo">Extremo</option>
+                        <option value="alto">Alto</option>
+                        <option value="medio">Médio</option>
+                    </select>
+                </div>
+                <div class="linha procedimento">
+                    <select class="select-box" onchange="atualizarCor(this, 'procedimento')">
+                        <option value="">Selecione</option>
+                        <option value="apropriado">Apropriado</option>
+                        <option value="incompleto">Incompleto</option>
+                        <option value="inexistente">Inexistente</option>
+                    </select>
+                </div>
+                <div class="linha"><textarea class="input-text" placeholder="Digite a descrição"></textarea></div>
+                <div class="linha"><textarea class="input-text" placeholder="Digite a observação"></textarea></div>
+            `;
+            
+            // Adiciona a nova linha ao grupo
+            container.appendChild(novaLinha);
+        }
+    </script>
+</body>
+</html>

@@ -11,30 +11,76 @@
 
     <!-- Js do projeto -->
     <script src="JS/scripts.js" defer></script>
+
 </head>
+<body>
+
     <div class="tabela">
         <div class="header">CATEGORIA</div>
+        <div class="header">RISCO</div>
+        <div class="header">PROC. E TECNOLOGIAS</div>
         <div class="header">OBSERVAÇÕES</div>
-        <div class="header">PROCEDIMENTO E TECNOLOGIAS</div>
         <div class="header">DESCRIÇÃO</div>
 
         <div class="linha">Ana</div>
-        <div class="linha">25</div>
-        <div class="linha">São Paulo</div>
-
-        <div class="linha">João</div>
-        <div class="linha">30</div>
-        <div class="linha">Rio de Janeiro</div>
-
-        <div class="linha">João</div>
-        <div class="linha">30</div>
-        <div class="linha">Rio de Janeiro</div>
-
-        <div class="linha">Maria</div>
-        <div class="linha">22</div>
-        <div class="linha">Belo Horizonte</div>
+        <div class="linha">
+            <select class="risk-selection">
+                <option value="low">Baixo</option>
+                <option value="medium">Médio</option>
+                <option value="high">Alto</option>
+            </select>
+        </div>
+        <div class="linha">
+            <select class="proc-selection">
+                <option value="ok">Apropriado</option>
+                <option value="incomplete">Incompleto</option>
+                <option value="none">Inexistente</option>
+            </select>
+        </div>
+        <div class="linha"><input class="input-obs" type="text"></div>
+        <div class="linha"><input class="input-obs" type="text"></div>
+        
+        
     </div>
 
+    <!---
+    <div>
+        <table>
+            <tr>
+                <th>Sunday</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+
+            </tr>
+            <tr> 
+                <td>Closed</td>
+                <td>Closed</td>
+                <td><input type="text"></td>
+                <td>Closed</td>
+                <td>Closed</td>
+                <td>Closed</td>
+                <td>Closed</td>
+            </tr> 
+        </table>-->
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
