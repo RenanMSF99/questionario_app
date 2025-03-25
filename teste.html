@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Linhas</title>
+    <style>
+        .linha-container {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 5px;
+            background-color: #f8f9fa;
+            padding: 10px;
+        }
+
+        .linha {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+            background-color: white;
+        }
+
+        .botao {
+            margin: 10px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="botao" onclick="adicionarLinha()">Adicionar Linha</button>
+
+    <div class="linha-container" id="linhaContainer">
+        <div class="linha">Enunciado</div>
+        <div class="linha">Categoria</div>
+        <div class="linha">Risco</div>
+        <div class="linha">Procedimento</div>
+        <div class="linha">Descrição</div>
+        <div class="linha">Observação</div>
+    </div>
+
+    <script>
+        function adicionarLinha() {
+            const container = document.getElementById("linhaContainer");
+
+            const novaLinha = `
+                <div class="linha"><textarea placeholder="Digite o enunciado"></textarea></div>
+                <div class="linha">Nova Categoria</div>
+                <div class="linha">
+                    <select>
+                        <option>Baixo</option>
+                        <option>Médio</option>
+                        <option>Alto</option>
+                    </select>
+                </div>
+                <div class="linha">
+                    <select>
+                        <option>Apropriado</option>
+                        <option>Incompleto</option>
+                        <option>Inexistente</option>
+                    </select>
+                </div>
+                <div class="linha"><textarea placeholder="Digite a descrição"></textarea></div>
+                <div class="linha"><textarea placeholder="Digite a observação"></textarea></div>
+            `;
+
+            container.insertAdjacentHTML("beforeend", novaLinha);
+        }
+    </script>
+
+</body>
+</html>

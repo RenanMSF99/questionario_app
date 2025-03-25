@@ -14,12 +14,13 @@
 
 </head>
 <body>
-    <button class="toggle-button" onclick="toggleColunaEnunciado()">Mostrar/Ocultar Coluna Enunciado</button>
+    <button class="toggle-button" onclick="mudarTexto(this), toggleColunaEnunciado()">Ocultar Coluna 'Enunciado'</button>
     
     <div class="tabela">
-        <div class="grupo">
+        <!-- Grupo 1-->
+        <div class="grupo" id="G0">
             <div class="legenda">Grupo 1: Segurança no Trabalho</div>
-            <div class="linha-container" id="linhaContainer1">
+            <div class="linha-container" id="linhaContainer0">
                 <div class="linha header enunciado">Enunciado</div>
                 <div class="linha header">Categoria</div>
                 <div class="linha header">Risco</div>
@@ -47,39 +48,22 @@
                 <div class="linha"><textarea class="input-text" placeholder="Digite a descrição"></textarea></div>
                 <div class="linha"><textarea class="input-text" placeholder="Digite a observação"></textarea></div>
             </div>
+            <div>
+                <button class="add-row" onclick="adicionarLinha(0)">
+                    Adicionar linha  <i class="fa-solid fa-plus"></i>
+                </button>
         </div>
+        
 
-        <div class="grupo">
-            <div class="legenda">Grupo 2: Riscos</div>
-            <div class="linha-container" id="linhaContainer2">
-                <div class="linha header enunciado">Enunciado</div>
-                <div class="linha header">Categoria</div>
-                <div class="linha header">Risco</div>
-                <div class="linha header">Procedimento e Tecnologia</div>
-                <div class="linha header">Descrição</div>
-                <div class="linha header">Observação</div>
-                <div class="linha enunciado"><textarea class="input-text" placeholder="Digite o enunciado"></textarea></div>
-                <div class="linha">Elétrica</div>
-                <div class="linha risco">
-                    <select class="select-box" onchange="atualizarCor(this, 'risco')">
-                        <option value="">Selecione</option>
-                        <option value="extremo">Extremo</option>
-                        <option value="alto">Alto</option>
-                        <option value="medio">Médio</option>
-                    </select>
-                </div>
-                <div class="linha procedimento">
-                    <select class="select-box" onchange="atualizarCor(this, 'procedimento')">
-                        <option value="">Selecione</option>
-                        <option value="apropriado">Apropriado</option>
-                        <option value="incompleto">Incompleto</option>
-                        <option value="inexistente">Inexistente</option>
-                    </select>
-                </div>
-                <div class="linha"><textarea class="input-text" placeholder="Digite a descrição"></textarea></div>
-                <div class="linha"><textarea class="input-text" placeholder="Digite a observação"></textarea></div>
-            </div>
         </div>
+        <button class="add-group" onclick="adicionarGrupo()">
+            Novo Grupo  <i class="fa-solid fa-plus"></i>
+        </button>
+
+
+
+        
+    
     </div>
 
     <script>
