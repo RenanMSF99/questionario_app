@@ -1,6 +1,6 @@
 /*variáveis*/
 
-var contadorGrupos = [1];
+var contadorGrupos = [0];
 
 
 /* fim variáveis*/
@@ -62,7 +62,7 @@ function adicionarGrupo() {
 
     const novaLinha = `
          <div class="grupo" id="G${contador}">
-            <div class="legenda">Grupo ${contador}: mais a dizer, olha só ${ "id" + contador}</div>
+            <div class="legenda">Grupo ${contador}:</div>
             <div class="linha-container" id="linhaContainer${contador}">
                 <div class="linha header enunciado">Enunciado</div>
                 <div class="linha header">Categoria</div>
@@ -98,5 +98,5 @@ function adicionarGrupo() {
         </div>
     `;
 
-    container.insertAdjacentHTML("beforeend", novaLinha);
+    container.insertAdjacentHTML("afterend", novaLinha);
 }
